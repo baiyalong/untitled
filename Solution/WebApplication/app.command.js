@@ -4,19 +4,19 @@
 "use strict";
 
 app.command = {
-    init:function(){
+    init: function () {
         this.refresh();
         $(this.config.ajaxEvent.add.trigger).click(this.add(this.config.ajaxEvent.add));
-        $(this.config.ajaxEvent.update.trigger).each(function(index,element){
-            element.click(this.update(this.config.ajaxEvent.update,element));
+        $(this.config.ajaxEvent.update.trigger).each(function (index, element) {
+            element.click(this.update(this.config.ajaxEvent.update, element));
         });
-        $(this.config.ajaxEvent.remove.trigger).each(function(index,element){
-            element.click(this.remove(this.config.ajaxEvent.remove,element));
+        $(this.config.ajaxEvent.remove.trigger).each(function (index, element) {
+            element.click(this.remove(this.config.ajaxEvent.remove, element));
         });
     },
 
-    getList:function(config){
-        $.get(config.path,function(data,status,xhr){
+    getList: function (config) {
+        $.get(config.path, function (data, status, xhr) {
             status == "success" ? function () {
                 $(config.target).empty();
                 $(config.target).append(config.head);
@@ -27,36 +27,36 @@ app.command = {
         });
     },
 
-    refresh:function(){
+    refresh: function () {
         this.getList(app.command.config.ajaxEvent.getList);
     },
 
-    add:function(config){
+    add: function (config) {
         var data = {
-            code:$(config.form.code).val(),
-            description:$(config.form.description).val()
+            code: $(config.form.code).val(),
+            description: $(config.form.description).val()
         };
-        $.post(config.path,data,function(data,status,xhr){
+        $.post(config.path, data, function (data, status, xhr) {
             status == "success" ? function () {
                 this.refresh();
             } : alert(status + data);
         });
     },
 
-    update:function(config,element){
+    update: function (config, element) {
 
     },
 
-    remove:function(config,element){
+    remove: function (config, element) {
         var id = element.closest("td").siblings(config.id);
         $.ajax({
-            url:config.path.replace("{id}",id),
-            type:"DELETE",
-            success:function(data,status,xhr){
+            url: config.path.replace("{id}", id),
+            type: "DELETE",
+            success: function (data, status, xhr) {
                 this.refresh();
             },
-            error:function(xhr,status,error){
-                alert(status+error);
+            error: function (xhr, status, error) {
+                alert(status + error);
             }
         });
     }
@@ -64,38 +64,38 @@ app.command = {
 
 
 app.command.config = {
-    ajaxEvent:{
-        add:{
-            path:"/api/command/",
-            trigger:"#app-command-submit",
-            form:{
-                code:"#app-command-input-code",
-                description:"#app-command-input-description"
+    ajaxEvent: {
+        add: {
+            path: "/api/command/",
+            trigger: "#app-command-submit",
+            form: {
+                code: "#app-command-input-code",
+                description: "#app-command-input-description"
             }
         },
-        remove:{
-            path:"/api/command/{id}",
-            trigger:".app-command-delete",
-            id:".app-command-id"
+        remove: {
+            path: "/api/command/{id}",
+            trigger: ".app-command-delete",
+            id: ".app-command-id"
         },
-        update:{
-            path:"/api/command/{id}",
-            trigger:".app-command-update"
+        update: {
+            path: "/api/command/{id}",
+            trigger: ".app-command-update"
         },
-        get:{
-            path:"/api/command/{id}"
+        get: {
+            path: "/api/command/{id}"
         },
-        getList:{
-            path:"/api/command",
-            target:"#app-command-list",
-            head:"<tr>" +
+        getList: {
+            path: "/api/command",
+            target: "#app-command-list",
+            head: "<tr>" +
                 "<th>序号</th>" +
                 "<th>标识</th>" +
                 "<th>编码</th>" +
                 "<th>描述</th>" +
                 "<th>操作</th>" +
                 "</tr>",
-            tr:function(index,element){
+            tr: function (index, element) {
                 return "<tr>" +
                     "<td>" + index + "</td>" +
                     "<td class='app-command-id'>" + element.id + "</td>" +
