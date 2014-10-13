@@ -89,6 +89,9 @@
     <Content Include="..\..\js\app.js">
       <Link>app.js</Link>
     </Content>
+    <Content Include="..\..\js\app.nav.js">
+      <Link>app.nav.js</Link>
+    </Content>
     <Content Include="..\..\js\app.terminal.js">
       <Link>app.terminal.js</Link>
     </Content>
