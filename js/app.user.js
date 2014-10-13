@@ -4,7 +4,9 @@
 "use strict";
 
 app.user = {
+    init: function () {
 
+    }
 };
 
 

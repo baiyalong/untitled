@@ -4,7 +4,9 @@
 "use strict";
 
 app.terminal = {
+    init: function () {
 
+    }
 };
 
 

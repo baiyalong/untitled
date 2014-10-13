@@ -65,16 +65,36 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.ajax.js" />
-    <Content Include="app.auth.js" />
-    <Content Include="app.command.html" />
-    <Content Include="app.command.js" />
-    <Content Include="app.js" />
-    <Content Include="app.terminal.html" />
-    <Content Include="app.terminal.js" />
-    <Content Include="app.user.html" />
-    <Content Include="app.user.js" />
-    <Content Include="Index.html" />
+    <Content Include="..\..\app.command.html">
+      <Link>app.command.html</Link>
+    </Content>
+    <Content Include="..\..\app.terminal.html">
+      <Link>app.terminal.html</Link>
+    </Content>
+    <Content Include="..\..\app.user.html">
+      <Link>app.user.html</Link>
+    </Content>
+    <Content Include="..\..\Index.html">
+      <Link>Index.html</Link>
+    </Content>
+    <Content Include="..\..\js\app.ajax.js">
+      <Link>app.ajax.js</Link>
+    </Content>
+    <Content Include="..\..\js\app.auth.js">
+      <Link>app.auth.js</Link>
+    </Content>
+    <Content Include="..\..\js\app.command.js">
+      <Link>app.command.js</Link>
+    </Content>
+    <Content Include="..\..\js\app.js">
+      <Link>app.js</Link>
+    </Content>
+    <Content Include="..\..\js\app.terminal.js">
+      <Link>app.terminal.js</Link>
+    </Content>
+    <Content Include="..\..\js\app.user.js">
+      <Link>app.user.js</Link>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
