@@ -3,12 +3,8 @@
  */
 "use strict";
 
-$(function () {
-    app.init(app.config.nav);
-});
 
-var app;
-app = {
+app.nav = {
     init: function (config) {
         $.each(config.event, function (index, element) {
             $(element.trigger).click(function () {
@@ -23,27 +19,28 @@ app = {
 };
 
 
-app.config = {
-    nav: {
-        target: "#app-content",
-        event: [
-            {
-                trigger: "#app-user",
-                html: "app.user.html",
-                func: app.user.init
-            },
-            {
-                trigger: "#app-terminal",
-                html: "app.terminal.html",
-                func: app.terminal.init
-            },
-            {
-                trigger: "#app-command",
-                html: "app.command.html",
-                func: app.command.init
-            }
-        ]
-    }
+app.nav.config = {
+    target: "#app-content",
+    event: [
+        {
+            trigger: "#app-user",
+            html: "app.user.html",
+            func: app.user.init
+        },
+        {
+            trigger: "#app-terminal",
+            html: "app.terminal.html",
+            func: app.terminal.init
+        },
+        {
+            trigger: "#app-command",
+            html: "app.command.html",
+            func: app.command.init
+        }
+    ]
 };
 
 
+$(function () {
+    app.nav.init(app.nav.config);
+});
