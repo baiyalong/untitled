@@ -5,4 +5,6 @@
 
 var app = {};
 
-
+app.config = {
+    target: "#app-content"
+}
