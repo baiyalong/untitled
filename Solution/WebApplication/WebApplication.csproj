@@ -86,6 +86,9 @@
     <Content Include="..\..\js\app.command.js">
       <Link>app.command.js</Link>
     </Content>
+    <Content Include="..\..\js\app.grid.js">
+      <Link>app.grid.js</Link>
+    </Content>
     <Content Include="..\..\js\app.js">
       <Link>app.js</Link>
     </Content>
