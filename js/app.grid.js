@@ -5,14 +5,16 @@
 
 app.grid = {
     init: function (config) {
-        this.refresh(config);
-        $(config.refresh.trigger).click(this.refresh(config.get));
-        $(config.add.trigger).click(this.add(config.add));
-        //$(config.update.trigger).each(function (index, element) {
-        //    element.click(this.update());
-        //});
-        $(config.remove.trigger).each(function (index, element) {
-            element.click(this.remove(config.remove, element));
+        this.refresh(config.get);
+        $(function () {
+            $(config.refresh.trigger).live("click", app.grid.refresh(config.get));
+            $(config.add.trigger).live("click", app.grid.add(config.add));
+            //$(config.update.trigger).each(function (index, element) {
+            //    element.click(this.update());
+            //});
+            $(config.remove.trigger).each(function (index, element) {
+                element.live("click", app.grid.remove(config.remove, element));
+            });
         });
     },
     refresh: function (config) {
@@ -24,9 +26,9 @@ app.grid = {
             data: null,
             callback: function (data) {
                 $(config.target).empty();
-                $(config.target).append(this.thead(config.thead));
+                $(config.target).append(app.grid.thead(config.thead));
                 $.each(data, function (index, element) {
-                    $(config.target).append(this.tbody(config.tbody, index, element));
+                    $(config.target).append(app.grid.tbody(config.tbody, index, element));
                 });
             }
         });

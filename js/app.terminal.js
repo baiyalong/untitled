@@ -5,7 +5,7 @@
 
 app.terminal = {
     init: function () {
-        app.grid.init(this.config);
+        app.grid.init(app.terminal.config);
 
 
     }
@@ -15,6 +15,10 @@ app.terminal = {
 app.terminal.config = {
     refresh: {
         trigger: "#app-terminal-refresh"
+    },
+    add: {
+        trigger: "",
+        data: function () { }
     },
     remove: {},
     get: {

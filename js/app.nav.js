@@ -9,9 +9,7 @@ app.nav = {
         $.each(config.event, function (index, element) {
             $(element.trigger).click(function () {
                 $(config.target).load(element.html, function (data, status, xhr) {
-                    status != "success" ? alert(status + data) : function () {
-                        element.func();
-                    };
+                    status == "success" ? element.init() : alert(status + data);
                 });
             });
         });
@@ -25,17 +23,17 @@ app.nav.config = {
         {
             trigger: "#app-user",
             html: "app.user.html",
-            func: app.user.init
+            init: app.user.init
         },
         {
             trigger: "#app-terminal",
             html: "app.terminal.html",
-            func: app.terminal.init
+            init: app.terminal.init
         },
         {
             trigger: "#app-command",
             html: "app.command.html",
-            func: app.command.init
+            init: app.command.init
         }
     ]
 };
