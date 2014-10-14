@@ -6,14 +6,18 @@
 app.grid = {
     init: function (config) {
         this.refresh(config.get);
-        $(function () {
-            $(config.refresh.trigger).live("click", app.grid.refresh(config.get));
-            $(config.add.trigger).live("click", app.grid.add(config.add));
-            //$(config.update.trigger).each(function (index, element) {
-            //    element.click(this.update());
-            //});
-            $(config.remove.trigger).each(function (index, element) {
-                element.live("click", app.grid.remove(config.remove, element));
+        $(config.refresh.trigger).live("click", function () {
+            app.grid.refresh(config.get);
+        });
+        $(config.add.trigger).live("click", function () {
+            app.grid.add(config.add);
+        });
+        //$(config.update.trigger).each(function (index, element) {
+        //    element.click(this.update());
+        //});
+        $(config.remove.trigger).each(function (index, element) {
+            element.live("click", function () {
+                app.grid.remove(config.remove, element);
             });
         });
     },
@@ -72,7 +76,7 @@ app.grid = {
     },
     tbody: function (config, index, element) {
         var tr = "<tr>";
-        config.callback(index, element);
+        tr += config.callback(index, element);
         tr += "</tr>";
         return tr;
     }

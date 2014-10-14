@@ -11,10 +11,3 @@ app.config = {
 
 
 
-
-$(function () {
-    $.get("/api/terminal", function (data, status, xhr) {
-        alert(status);
-    });
-});
-
