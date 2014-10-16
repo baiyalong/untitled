@@ -4,8 +4,18 @@
 "use strict";
 
 app.modal = {
-   
+    init: function () {
 
+    },
+    form: function () {
+
+    },
+    add: function () {
+
+    },
+    update: function () {
+
+    }
 
 }
 
