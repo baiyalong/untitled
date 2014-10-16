@@ -68,6 +68,12 @@
     <Content Include="..\..\app.command.html">
       <Link>app.command.html</Link>
     </Content>
+    <Content Include="..\..\app.modal.html">
+      <Link>app.modal.html</Link>
+    </Content>
+    <Content Include="..\..\app.table.html">
+      <Link>app.table.html</Link>
+    </Content>
     <Content Include="..\..\app.terminal.html">
       <Link>app.terminal.html</Link>
     </Content>
@@ -92,8 +98,14 @@
     <Content Include="..\..\js\app.js">
       <Link>app.js</Link>
     </Content>
+    <Content Include="..\..\js\app.modal.js">
+      <Link>app.modal.js</Link>
+    </Content>
     <Content Include="..\..\js\app.nav.js">
       <Link>app.nav.js</Link>
+    </Content>
+    <Content Include="..\..\js\app.table.js">
+      <Link>app.table.js</Link>
     </Content>
     <Content Include="..\..\js\app.terminal.js">
       <Link>app.terminal.js</Link>
