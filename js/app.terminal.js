@@ -48,27 +48,27 @@ app.terminal.config = {
             ],
         tbody: {
             callback: function (index, element) {
-                var tr = "";
-                tr += "<td>" + element.iD + "</td>";
-                tr += "<td>" + element.user + "</td>";
-                tr += "<td>" + element.iMEI + "</td>";
-                tr += "<td>" + element.phoneNumber + "</td>";
-                tr += "<td>" + element.appID + "</td>";
-                tr += "<td>" + element.deviceSN + "</td>";
-                tr += "<td>" + (function(){return element.oSType == 0 ? "Android" : "IOS";})() + "</td>";
-                tr += "<td>" + element.oSVersion + "</td>";
-                tr += "<td>" + element.kernelVersion + "</td>";
-                tr += "<td>" + element.deviceName + "</td>";
-                tr += "<td>" + element.deviceType + "</td>";
-                tr += "<td>" + element.wifiMac + "</td>";
-                tr += "<td>" + element.blueTooth + "</td>";
-                tr += "<td>" + element.operator + "</td>";
-                tr += "<td>" + element.power + "</td>";
-                tr += "<td>" + element.totalRomSpace + "</td>";
-                tr += "<td>" + element.availRomSpace + "</td>";
-                tr += "<td>" + element.totalSDSpace + "</td>";
-				tr += "<td>" + element.availSDSpace + "</td>";
-                return tr;
+                return [
+                element.iD ,
+                element.user ,
+                element.iMEI ,
+                element.phoneNumber ,
+                element.appID ,
+                element.deviceSN ,
+                (function(){return element.oSType == 0 ? "Android" : "IOS";})() ,
+                element.oSVersion ,
+                element.kernelVersion ,
+                element.deviceName ,
+                element.deviceType ,
+                element.wifiMac ,
+                element.blueTooth ,
+                element.operator ,
+                element.power ,
+                element.totalRomSpace ,
+                element.availRomSpace ,
+                element.totalSDSpace ,
+				element.availSDSpace ,
+                ];
             }
         }
     }

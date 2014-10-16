@@ -12,6 +12,9 @@ app.grid = {
         $(config.add.trigger).live("click", function () {
             app.grid.add(config.add);
         });
+        $(config.add.submit).live("click", function () {
+            app.grid.addSubmit(config.add);
+        });
         //$(config.update.trigger).each(function (index, element) {
         //    element.click(this.update());
         //});
@@ -38,6 +41,9 @@ app.grid = {
         });
     },
     add: function (config) {
+
+    },
+    addSubmit: function (config) {
         app.ajax.post({
             url: config.url,
             data: config.data(),
@@ -76,8 +82,13 @@ app.grid = {
     },
     tbody: function (config, index, element) {
         var tr = "<tr>";
-        tr += config.callback(index, element);
+        $.each(config.callback(index, element), function (index, element) {
+            tr += "<td>" + element + "</td>";
+        });
         tr += "</tr>";
         return tr;
+    },
+    modal: function () {
+
     }
 }
