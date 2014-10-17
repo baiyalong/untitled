@@ -7,11 +7,19 @@ app.table = {
     init: function (config) {
         var table = "<table class='table table-condensed table-hover' id='app-{module}-table'>{thead}</table>";
         table = table.replace("{module}", config.prefix).replace("{thead}", app.table.thead(config));
-        $(app.table.config.target).append(table);
+        $(app.table.config.target).empty().append(table);
         app.table.get(config);
+        app.table.regist(config);
     },
-    regist: function () {
-
+    regist: function (config) {
+        $("#app-{module}-trigger-add".replace("{module}", config.prefix)).on("click", function () { app.table.add(config); });
+        $("#app-{module}-trigger-get".replace("{module}", config.prefix)).on("click", function () { app.table.get(config); });
+        $(".app-{module}-trigger-remove".replace("{module}", config.prefix)).each(function (index, element) {
+            element.live("click", app.table.remove(config, element));
+        });
+        $(".app-{module}-trigger-update".replace("{module}", config.prefix)).each(function (index, element) {
+            element.on("click", app.table.update(config, element));
+        });
     },
     thead: function (config) {
         var tr = "<thead><tr>";
@@ -62,7 +70,19 @@ app.table = {
             }
         });
     },
-    remove: function () {
+    remove: function (config, element) {
+        var id = element.closest("tr").children().first().text();
+        app.ajax.remove({
+            url: config.url + id,
+            callback: function (data) {
+                app.table.get(config);
+            }
+        });
+    },
+    add: function (config) {
+
+    },
+    update: function (config, element) {
 
     },
     config: {
