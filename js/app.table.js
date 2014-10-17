@@ -18,7 +18,7 @@ app.table = {
             element.live("click", app.table.remove(config, element));
         });
         $(".app-{module}-trigger-update".replace("{module}", config.prefix)).each(function (index, element) {
-            element.on("click", app.table.update(config, element));
+            element.live("click", app.table.update(config, element));
         });
     },
     thead: function (config) {
