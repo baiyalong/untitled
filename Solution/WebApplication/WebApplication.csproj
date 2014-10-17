@@ -65,9 +65,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\app.terminal.html">
-      <Link>app.terminal.html</Link>
-    </Content>
     <Content Include="..\..\Index.html">
       <Link>Index.html</Link>
     </Content>

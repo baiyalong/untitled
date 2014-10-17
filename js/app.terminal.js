@@ -5,71 +5,37 @@
 
 app.terminal = {
     init: function () {
-        app.grid.init(app.terminal.config);
-
-
-    }
-};
-
-
-app.terminal.config = {
-    refresh: {
-        trigger: "#app-terminal-refresh"
+        app.module.init(app.terminal.config);
     },
-    add: {
-        trigger: "",
-        data: function () { }
-    },
-    remove: {},
-    get: {
-        trigger: "",
+    config: [{
+        prefix: "terminal",
         url: "/api/terminal/",
-        target: "#app-terminal-table",
-        thead: [
-            "ID",
-            "用户ID",
-            "设备IMEI",
-            "手机号",
-            "应用ID",
-            "设备号",
-            "操作系统类型",
-            "操作系统版本号",
-            "内核版本号",
-            "设备名",
-            "设备型号",
-            "Wifi Mac地址",
-            "蓝牙地址",
-            "运营商",
-            "电量",
-            "手机总内存",
-            "手机剩余内存",
-            "SD卡总内存",
-            "SD卡剩余内存"
-            ],
-        tbody: {
-            callback: function (index, element) {
-                return [
-                element.iD ,
-                element.user ,
-                element.iMEI ,
-                element.phoneNumber ,
-                element.appID ,
-                element.deviceSN ,
-                (function(){return element.oSType == 0 ? "Android" : "IOS";})() ,
-                element.oSVersion ,
-                element.kernelVersion ,
-                element.deviceName ,
-                element.deviceType ,
-                element.wifiMac ,
-                element.blueTooth ,
-                element.operator ,
-                element.power ,
-                element.totalRomSpace ,
-                element.availRomSpace ,
-                element.totalSDSpace ,
-				element.availSDSpace ,
-                ];
-            }
+        property: [
+            { name: "ID", code: "iD", validate: function (input) { return true; } },
+            { name: "用户ID", code: "user" },
+            { name: "设备IMEI", code: "iMEI" },
+            { name: "手机号", code: "phoneNumber" },
+            { name: "应用ID", code: "appID" },
+            { name: "设备号", code: "deviceSN" },
+            { name: "操作系统类型", code: "oSType" },
+            { name: "操作系统版本号", code: "oSVersion" },
+            { name: "内核版本号", code: "kernelVersion" },
+            { name: "设备名", code: "deviceName" },
+            { name: "设备型号", code: "deviceType" },
+            { name: "Wifi Mac地址", code: "wifiMac" },
+            { name: "蓝牙地址", code: "blueTooth" },
+            { name: "运营商", code: "operator" },
+            { name: "电量", code: "power" },
+            { name: "手机总内存", code: "totalRomSpace" },
+            { name: "手机剩余内存", code: "availRomSpace" },
+            { name: "SD卡总内存", code: "totalSDSpace" },
+            { name: "SD卡剩余内存", code: "availSDSpace" },
+        ],
+        method: {
+            remove: {},
+            get: {}
         }
-    }
+    }]
 };
+
+

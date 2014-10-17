@@ -6,54 +6,56 @@
 app.table = {
     init: function (config) {
         var table = "<table class='table table-condensed table-hover' id='app-{module}-table'>{thead}</table>";
-        table = table.replace("{module}", config.prefix).replace("{thead}", this.thread(config));
-        $(this.config.target).append(table);
-        this.get(config);
+        table = table.replace("{module}", config.prefix).replace("{thead}", app.table.thead(config));
+        $(app.table.config.target).append(table);
+        app.table.get(config);
     },
     thead: function (config) {
-        var tr = "<tr>";
+        var tr = "<thead><tr>";
         $.each(config.property, function (index, element) {
             var th = "<th>{name}</th>";
             th = th.replace("{name}", element.name);
             tr += th;
         });
         var th = "<th>{trigger}</th>";
-        th = th.replace("{trigger}", this.config.trigger.get +
+        th = th.replace("{trigger}", app.table.config.trigger.get +
             (function (config) {
-                return "add" in config.method ? this.config.trigger.add : null;
+                return "add" in config.method ? app.table.config.trigger.add : null;
             })(config));
         tr += th;
-        tr += "</tr>";
+        tr += "</tr></thead>";
         return tr;
     },
     tbody: function (config, data) {
-        var tbody = "";
+        var tbody = "<tbody>";
         $.each(data, function (index, element) {
             var tr = "<tr>";
             $.each(config.property, function (index2, element2) {
-                var td = "<td>{value}<td>";
+                var td = "<td>{value}</td>";
                 td = td.replace("{value}", element[element2.code]);
                 tr += td;
             });
             var td = "<td>{trigger}</td>";
             td = td.replace("{trigger}",
                 (function (config) {
-                    var trigger = "update" in config.method ? this.config.trigger.update : "";
-                    trigger += "remove" in config.method ? this.config.trigger.remove : "";
+                    var trigger = "update" in config.method ? app.table.config.trigger.update : "";
+                    trigger += "remove" in config.method ? app.table.config.trigger.remove : "";
                     return trigger;
                 })(config));
             tr += td;
             tr += "</tr>";
             tbody += tr;
         });
+        tbody += "</tbody>";
         return tbody;
     },
     get: function (config) {
-        //empty
+        var tid = "#app-{module}-table".replace("{module}", config.prefix);
         app.ajax.get({
-            url: cofig.url,
-            callback: function (config, data) {
-                $("#app-{module}-table".replace("{module}", config.prefix)).append(tbody(config, data));
+            url: config.url,
+            callback: function (data) {
+                $(tid).find("tbody").remove();
+                $(tid).append(app.table.tbody(config, data));
             }
         });
     },
