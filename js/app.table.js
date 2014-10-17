@@ -80,10 +80,10 @@ app.table = {
         });
     },
     add: function (config) {
-
+        app.modal.show(config, "add");
     },
     update: function (config, element) {
-
+        app.modal.show(config, "update", element.closest("tr").children().first().text());
     },
     config: {
         target: "#app-content",

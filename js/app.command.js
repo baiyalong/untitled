@@ -5,9 +5,10 @@
 
 app.command = {
     init: function () {
-        app.module.init(this.config);
+        app.module.init(app.command.config);
     },
     config: [{
+        name: "命令",
         prefix: "command",
         url: "/api/command/",
         property: [

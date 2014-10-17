@@ -8,6 +8,7 @@ app.terminal = {
         app.module.init(app.terminal.config);
     },
     config: [{
+        name:"终端",
         prefix: "terminal",
         url: "/api/terminal/",
         property: [
