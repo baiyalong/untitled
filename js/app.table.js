@@ -10,6 +10,9 @@ app.table = {
         $(app.table.config.target).append(table);
         app.table.get(config);
     },
+    regist: function () {
+
+    },
     thead: function (config) {
         var tr = "<thead><tr>";
         $.each(config.property, function (index, element) {
@@ -18,9 +21,9 @@ app.table = {
             tr += th;
         });
         var th = "<th>{trigger}</th>";
-        th = th.replace("{trigger}", app.table.config.trigger.get +
+        th = th.replace("{trigger}", app.table.config.trigger("get", config.prefix) +
             (function (config) {
-                return "add" in config.method ? app.table.config.trigger.add : null;
+                return "add" in config.method ? app.table.config.trigger("add", config.prefix) : "";
             })(config));
         tr += th;
         tr += "</tr></thead>";
@@ -38,8 +41,8 @@ app.table = {
             var td = "<td>{trigger}</td>";
             td = td.replace("{trigger}",
                 (function (config) {
-                    var trigger = "update" in config.method ? app.table.config.trigger.update : "";
-                    trigger += "remove" in config.method ? app.table.config.trigger.remove : "";
+                    var trigger = "update" in config.method ? app.table.config.trigger("update", config.prefix) : "";
+                    trigger += "remove" in config.method ? app.table.config.trigger("remove", config.prefix) : "";
                     return trigger;
                 })(config));
             tr += td;
@@ -64,11 +67,21 @@ app.table = {
     },
     config: {
         target: "#app-content",
-        trigger: {
-            add: "",
-            remove: "",
-            update: "",
-            get: ""
+        trigger: function (trigger, prefix) {
+            var btn = "<button id={id} type='button' class='btn btn-default {class}'><span class='glyphicon {trigger}'></span></button>";
+            switch (trigger) {
+                case "add": btn = btn.replace("{id}", "app-{module}-trigger-add".replace("{module}", prefix)).replace("{class}", "").replace("{trigger}", "glyphicon-plus");
+                    break;
+                case "get": btn = btn.replace("{id}", "app-{module}-trigger-get".replace("{module}", prefix)).replace("{class}", "").replace("{trigger}", "glyphicon-repeat");
+                    break;
+                case "remove": btn = btn.replace("{id}", "").replace("{class}", "app-{module}-trigger-remove".replace("{module}", prefix)).replace("{trigger}", "glyphicon-remove");
+                    break;
+                case "update": btn = btn.replace("{id}", "").replace("{class}", "app-{module}-trigger-update".replace("{module}", prefix)).replace("{trigger}", "glyphicon-edit");
+                    break;
+                default:
+                    break;
+            }
+            return btn;
         },
     },
 
