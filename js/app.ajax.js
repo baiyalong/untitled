@@ -2,7 +2,7 @@
  * Created by yalong on 2014/10/11.
  */
 "use strict";
-
+var app = {};
 app.ajax = {
     get: function (config) {
         $.get(config.url, function (data, status, xhr) {
@@ -18,6 +18,7 @@ app.ajax = {
         $.ajax({
             url: config.url,
             type: "PUT",
+            data: config.data,
             success: function (data, status, xhr) {
                 config.callback(data);
             },

@@ -65,6 +65,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\app.command.html">
+      <Link>app.command.html</Link>
+    </Content>
+    <Content Include="..\..\app.terminal.html">
+      <Link>app.terminal.html</Link>
+    </Content>
+    <Content Include="..\..\app.user.html">
+      <Link>app.user.html</Link>
+    </Content>
     <Content Include="..\..\Index.html">
       <Link>Index.html</Link>
     </Content>

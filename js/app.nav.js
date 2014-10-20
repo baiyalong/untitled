@@ -34,5 +34,5 @@ app.nav.config = {
 
 
 $(function () {
-    app.nav.init(app.nav.config);
+    //app.nav.init(app.nav.config);
 });
