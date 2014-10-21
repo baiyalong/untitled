@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDM</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header></header>
+    <div class="container-fluid">
+        <div class="row">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="col-md-6 col-md-offset-3">
+                <div class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="app-login-input-name" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="app-login-input-name" placeholder="admin">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="app-login-input-password" class="col-sm-2 control-label">密<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>码</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="app-login-input-password" placeholder="123">
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 记住我
+                                </label>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-default btn-block" id="app-login-submit">登录</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.ajax.js"></script>
+    <script src="js/app.login.js"></script>
+</body>
+</html>

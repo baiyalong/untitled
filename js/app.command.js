@@ -8,9 +8,10 @@ $(function () {
         config: {
             url: "/api/command/"
         },
-        refresh: function () {
+        refresh: function (data) {
             app.ajax.get({
                 url: app.command.config.url,
+                data: data,
                 callback: function (data) {
                     $("#app-command-table tbody").empty();
                     $.each(data, function (index, element) {
@@ -28,6 +29,9 @@ $(function () {
                     })
                 }
             });
+        },
+        search: function (data) {
+            app.command.refresh(data);
         },
         get: function (id, callback) {
             app.ajax.get({
@@ -125,6 +129,13 @@ $(function () {
         $("#app-command-submit-add").css("display", "none");
     });
 
+    //search
+    $("#app-command-submit-search").on("click", function () {
+        var search = $("#app-command-input-search").val();
+        app.command.search({
+            search: search
+        });
+    });
 });
 
 
