@@ -77,8 +77,8 @@
     <Content Include="..\..\app.user.html">
       <Link>app.user.html</Link>
     </Content>
-    <Content Include="..\..\Index.html">
-      <Link>Index.html</Link>
+    <Content Include="..\..\index.html">
+      <Link>index.html</Link>
     </Content>
     <Content Include="..\..\js\app.ajax.js">
       <Link>app.ajax.js</Link>
