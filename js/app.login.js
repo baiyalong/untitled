@@ -16,7 +16,7 @@ $(function () {
                     callback: function (data) {
                         app.auth.set(data.token);
                         app.auth.setUserName(data.userName);
-                        window.location.href = "/index.html";
+                        window.location.href = "/Index.html";
                     }
                 });
             });
